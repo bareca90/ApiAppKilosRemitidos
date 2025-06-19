@@ -4,8 +4,6 @@ import { LoginValidation } from "./auth.validations";
 import { validateUserController } from "./auth.controller";
 import { CodesHttpEnum } from "../../enums/codesHttpsEnums";
 import { HttpResponse } from "../../utils/httpresponse.utils";
-
-
 const routes = Router();
 
 routes.post(
