@@ -4,7 +4,7 @@ import { HttpResponse } from '../utils/httpresponse.utils';
 import { PUBLIC_KEY } from '../environments/envs';
 import { CodesHttpEnum } from '../enums/codesHttpsEnums';
 
-export const validatioToken = (req: Request,res:Response,nxt: NextFunction) =>{
+export const validationToken = (req: Request,res:Response,nxt: NextFunction) =>{
     try {
         const token = req.headers.authorization;
         if(!token){

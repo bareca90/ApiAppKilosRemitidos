@@ -5,6 +5,7 @@ import config from './config/dbConfig';
 
 // ? Rutas del proyecto
 import authRoutes from "./modules/auth/auth.routes";
+import dataRoutes from "./modules/data/data.routes";
 
 import { ValidationError } from "express-validation";
 import { PORT } from "./environments/envs";
@@ -53,6 +54,7 @@ main();
 const prefix: string = "/api-kilosremitidosapp-v1";
 // ? Deficion de rutas por modulos
 app.use(`${prefix}/auth`, authRoutes) 
+app.use(`${prefix}/data`, dataRoutes) 
 
 
 app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
