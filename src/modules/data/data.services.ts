@@ -10,7 +10,8 @@ export class DataServices {
   async getWaybill(option: string) {
     try {
       const dataWayBillFromDb = await this.dataRepository.getWaybill(option);
-      const codeError = dataWayBillFromDb.codmsg;
+      return HttpResponse.response(CodesHttpEnum.ok, dataWayBillFromDb, "Data from DataServices: getWaybill");
+      /* const codeError = dataWayBillFromDb.codmsg;
       if (codeError === 300) {
         return HttpResponse.response(
           CodesHttpEnum.notFound,
@@ -19,7 +20,7 @@ export class DataServices {
         );
       }else  {
         return HttpResponse.response(CodesHttpEnum.ok, dataWayBillFromDb, "Data from DataServices: getWaybill");
-      }
+      } */
       
     } catch (error) {
       console.error("Error en Consulta de el services de Data: obtener guias de remisión (getWaybill)", error); // Registrar el error en la consola
