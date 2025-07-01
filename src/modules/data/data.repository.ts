@@ -9,7 +9,7 @@ export class DataRepository {
         .request()
         .input("opcion", sql.Char, option)
         .execute("Sp_App_Cmp_kilos_Remitidos_Consulta_Guias");
-      return result.recordset[0];
+      return result.recordset;
     } catch (error) {
       console.error("Error en Consulta de el Repository de Data:obtener guias de remision (Waybill)", error); // Registrar el error en la consola
       throw error;
