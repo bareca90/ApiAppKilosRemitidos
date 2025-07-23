@@ -78,7 +78,7 @@ export const InsertKgSentValidation = {
     }),
     cantidadRemitida: Joi.string().required().messages({
       'any.required': 'The cantidadRemitida field is required.',
-      'string.empty': 'The cantidadRemitida field cannot be empty.'
+      'number.base': 'The cantidadRemitida must be a number.'
     }),
     gramaje: Joi.number().required().messages({
       'any.required': 'The gramaje field is required.',
