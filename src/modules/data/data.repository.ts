@@ -32,7 +32,7 @@ export class DataRepository {
       throw error;
     }
   }
-  async insertKgSent(nroGuia: string,ciclo: string, anioSiembra: number, lote: number,  ingresoCompra: string , tipoMaterial: string, cantidadMaterial: number, unidadMedida: string, cantidadRemitida: string, gramaje: number,proceso:string ): Promise<any> {  
+  async insertKgSent(nroGuia: string,ciclo: string, anioSiembra: number, lote: number,  ingresoCompra: string , tipoMaterial: string, cantidadMaterial: number, unidadMedida: string, cantidadRemitida: number, gramaje: number,proceso:string ): Promise<any> {  
     try {
       const pool = await sql.connect(dbConfig);
       const result = await pool

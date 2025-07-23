@@ -51,7 +51,7 @@ export class DataServices {
     tipoMaterial: string,
     cantidadMaterial: number,
     unidadMedida: string,
-    cantidadRemitida: string,
+    cantidadRemitida: number,
     gramaje: number,
     proceso: string
   ) {
