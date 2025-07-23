@@ -32,4 +32,28 @@ export class DataRepository {
       throw error;
     }
   }
+  async insertKgSent(nroGuia: string,ciclo: string, anioSiembra: number, lote: number,  ingresoCompra: string , tipoMaterial: string, cantidadMaterial: number, unidadMedida: string, cantidadRemitida: string, gramaje: number,proceso:string ): Promise<any> {  
+    try {
+      const pool = await sql.connect(dbConfig);
+      const result = await pool
+        .request()
+        .input("nroGuia", sql.Char, nroGuia)
+        .input("PxgsCiSie", sql.Char, ciclo)
+        .input("PxgsAnSie", sql.Int, anioSiembra)
+        .input("PxgsPiscLo", sql.Int, lote)
+        .input("PxgsStaIC", sql.Char, ingresoCompra)
+        .input("PxgsTipMat", sql.Char, tipoMaterial)
+        .input("PxgsCan01", sql.Float, cantidadMaterial)
+        .input("PxgsUmedCd", sql.Char, unidadMedida)
+        .input("PxgsCanLbs", sql.Float, cantidadRemitida)
+        .input("PxgsCanGra", sql.Float, gramaje)
+        .input("PxgsDesPro", sql.Char, proceso)
+        .execute("Sp_App_Cmp_kilos_Remitidos_Guardar_Kilos");
+      return result.recordset[0];
+    } catch (error) {
+      console.error("Error en Consulta de el Repository de Data:insertar kilos enviados (KgSent)", error); // Registrar el error en la consola
+      throw error;
+    }   
+  }
+
 }

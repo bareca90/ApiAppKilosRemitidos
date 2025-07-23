@@ -39,3 +39,54 @@ export const UpdateDateTimeWaybillValidation = {
     })
   })
 };
+
+export const InsertKgSentValidation = {
+  body: Joi.object({
+    nroGuia: Joi.string().required().messages({
+      'any.required': 'The nroGuia field is required.',
+      'string.empty': 'The nroGuia field cannot be empty.'
+    }),
+    ciclo: Joi.string().required().messages({
+      'any.required': 'The ciclo field is required.',
+      'string.empty': 'The ciclo field cannot be empty.'
+    }),
+    anioSiembra: Joi.number().integer().required().messages({
+      'any.required': 'The anioSiembra field is required.',
+      'number.base': 'The anioSiembra must be a number.',
+      'number.integer': 'The anioSiembra must be an integer.'
+    }),
+    lote: Joi.number().integer().required().messages({
+      'any.required': 'The lote field is required.',
+      'number.base': 'The lote must be a number.',
+      'number.integer': 'The lote must be an integer.'
+    }),
+    ingresoCompra: Joi.string().required().messages({
+      'any.required': 'The ingresoCompra field is required.',
+      'string.empty': 'The ingresoCompra field cannot be empty.'
+    }),
+    tipoMaterial: Joi.string().required().messages({
+      'any.required': 'The tipoMaterial field is required.',
+      'string.empty': 'The tipoMaterial field cannot be empty.'
+    }),
+    cantidadMaterial: Joi.number().required().messages({
+      'any.required': 'The cantidadMaterial field is required.',
+      'number.base': 'The cantidadMaterial must be a number.'
+    }),
+    unidadMedida: Joi.string().required().messages({
+      'any.required': 'The unidadMedida field is required.',
+      'string.empty': 'The unidadMedida field cannot be empty.'
+    }),
+    cantidadRemitida: Joi.string().required().messages({
+      'any.required': 'The cantidadRemitida field is required.',
+      'string.empty': 'The cantidadRemitida field cannot be empty.'
+    }),
+    gramaje: Joi.number().required().messages({
+      'any.required': 'The gramaje field is required.',
+      'number.base': 'The gramaje must be a number.'
+    }),
+    proceso: Joi.string().required().messages({
+      'any.required': 'The proceso field is required.',
+      'string.empty': 'The proceso field cannot be empty.'
+    })
+  })
+};

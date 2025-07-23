@@ -2,7 +2,7 @@
 
 import { Request } from "express";
 import { DataServices } from "./data.services";
-import { DataRequest, UpdateDateTimeWaybillRequest } from "../../interfaces/data.interfaces";  
+import { DataRequest, InsertKgSentRequest, UpdateDateTimeWaybillRequest } from "../../interfaces/data.interfaces";  
 
 export const getWaybillController = async (req: Request) => {
   try {
@@ -29,3 +29,24 @@ export const updateDateTimeWaybillController = async (req: Request) => {
     throw error;
   }
 }
+export const insertKgSentController = async (req: Request) => {
+  try {
+    const { nroGuia, ciclo, anioSiembra, lote, ingresoCompra, tipoMaterial, cantidadMaterial, unidadMedida, cantidadRemitida, gramaje, proceso } = req.body as InsertKgSentRequest;
+    return await new DataServices().insertKgSent(
+      nroGuia,
+      ciclo,
+      anioSiembra,
+      lote,
+      ingresoCompra,
+      tipoMaterial,
+      cantidadMaterial,
+      unidadMedida,
+      cantidadRemitida,
+      gramaje,
+      proceso
+    );
+  } catch (error) {
+    console.error("Error en Consulta de el controller de Data: insertar kilos enviados (insertKgSentController)", error); // Registrar el error en la consola
+    throw error;
+  }
+} 

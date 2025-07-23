@@ -42,4 +42,41 @@ export class DataServices {
       throw error;
     }
   }
+  async insertKgSent(
+    nroGuia: string,
+    ciclo: string,
+    anioSiembra: number,
+    lote: number,
+    ingresoCompra: string,
+    tipoMaterial: string,
+    cantidadMaterial: number,
+    unidadMedida: string,
+    cantidadRemitida: string,
+    gramaje: number,
+    proceso: string
+  ) {
+    try {
+      const insertKgSent = await this.dataRepository.insertKgSent(
+        nroGuia,
+        ciclo,
+        anioSiembra,
+        lote,
+        ingresoCompra,
+        tipoMaterial,
+        cantidadMaterial,
+        unidadMedida,
+        cantidadRemitida,
+        gramaje,
+        proceso
+      );
+      if (insertKgSent.codcodmsg == 300) {
+        return HttpResponse.response(CodesHttpEnum.notFound, null, "No se encontraron datos para insertar");
+      } else {
+        return HttpResponse.response(CodesHttpEnum.ok, insertKgSent, "Data from DataServices: insertKgSent");
+      }
+    } catch (error) {
+      console.error("Error en Consulta de el services de Data: insertar kilos enviados (insertKgSent)", error); // Registrar el error en la consola
+      throw error;
+    }
+  } 
 }
