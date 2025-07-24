@@ -76,7 +76,7 @@ export const InsertKgSentValidation = {
       'any.required': 'The unidadMedida field is required.',
       'string.empty': 'The unidadMedida field cannot be empty.'
     }),
-    cantidadRemitida: Joi.string().required().messages({
+    cantidadRemitida: Joi.number().required().messages({
       'any.required': 'The cantidadRemitida field is required.',
       'number.base': 'The cantidadRemitida must be a number.'
     }),
