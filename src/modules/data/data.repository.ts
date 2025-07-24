@@ -48,7 +48,7 @@ export class DataRepository {
         .input("PxgsCanLbs", sql.Float, cantidadRemitida)
         .input("PxgsCanGra", sql.Float, gramaje)
         .input("PxgsDesPro", sql.Char, proceso)
-        .execute("Sp_App_Cmp_kilos_Remitidos_Guardar_Kilos");
+        .execute("Sp_App_Cmp_kilos_Remitidos_Insertar_Datos");
       return result.recordset[0];
     } catch (error) {
       console.error("Error en Consulta de el Repository de Data:insertar kilos enviados (KgSent)", error); // Registrar el error en la consola
